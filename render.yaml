@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: kas-flash-frontend
+    env: node
+    region: singapore # Optional, can be removed or changed
+    plan: free # Optional
+    buildCommand: npm install && npm run build --workspace=shared && npm run build --workspace=frontend
+    startCommand: npm start --workspace=frontend
+    envVars:
+      - key: NODE_VERSION
+        value: 20.11.0
+      - key: NEXT_PUBLIC_API_URL
+        value: https://your-backend-url.up.railway.app # Placeholder, user needs to update
